@@ -1,13 +1,6 @@
-import React from 'react';
-import { CustomText } from './styles';
+import React from 'react'
+import { CustomText } from './styles'
 
-
-export const Text =({children})=>{
-    return(
-
-        <CustomText>
-            {children}
-        </CustomText>
-
-    );
+export const Text = ({ children }) => {
+  return <CustomText>{children}</CustomText>
 }
