@@ -1,8 +1,8 @@
+import 'react-native-gesture-handler'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import React from 'react'
 import AppLoading from 'expo-app-loading'
-
-import { SplashScreen } from './src/screens/SplashScreen'
-
+import { ThemeProvider } from 'styled-components'
 import {
   useFonts,
   SourceSansPro_400Regular,
@@ -10,6 +10,10 @@ import {
   SourceSansPro_600SemiBold,
   SourceSansPro_900Black,
 } from '@expo-google-fonts/source-sans-pro'
+import { theme } from './src/styles'
+import { Routes } from './src/routes'
+
+// AsyncStorage.clear()
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -22,5 +26,10 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />
   }
-  return <SplashScreen />
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Routes />
+    </ThemeProvider>
+  )
 }
